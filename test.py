@@ -12,3 +12,5 @@ peaks = CreatePeaksWorkspace(NumberOfPeaks=0)
 for hkl in set(permutations([1,1,1,0,0,0,-1,-1,-1],3)):
     p = peaks.createPeakQSample(2*np.pi*np.dot(ub,hkl))
     peaks.addPeak(p)
+
+sorted_peaks = SortPeaksWorkspace(peaks, ColumnNameToSortBy='DSpacing')
