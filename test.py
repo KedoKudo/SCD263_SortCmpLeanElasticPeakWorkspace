@@ -14,3 +14,5 @@ for hkl in set(permutations([1,1,1,0,0,0,-1,-1,-1],3)):
     peaks.addPeak(p)
 
 sorted_peaks = SortPeaksWorkspace(peaks, ColumnNameToSortBy='DSpacing')
+
+CompareWorkspaces("peaks", "sorted_peaks")
