@@ -2,7 +2,7 @@
 
 # ----- Project Macro ----- #
 UnitTestCategory := AllTests
-UnitTestName := SortPeaksWorkspaceTest
+UnitTestName := CompareWorkspacesTest
 TestScript := test.py
 
 # ------------------------------------------------------ #
@@ -20,7 +20,7 @@ HOSTNAME  := $(shell hostname)
 BASEOPTS  := -GNinja -DENABLE_MANTIDPLOT=OFF -DCMAKE_INSTALL_PREFIX=$(INTALLDIR)
 
 # ----- GDB -----
-TestExecutable := $(BUILDDIR)/bin/CrystalTest
+TestExecutable := $(BUILDDIR)/bin/AlgorithmsTest
 
 # ----- BUILD OPTIONS -----
 ifneq (,$(findstring analysis,$(HOSTNAME)))
@@ -35,7 +35,7 @@ else
 endif
 
 # ----- UNIT TEST -----
-UNTCMDS := ctest --output-on-failure -V -R $(UnitTestName)
+UNTCMDS := ctest --output-on-failure -R $(UnitTestName)
 
 # ----- Targets -----
 .PHONY: test qtest build unittest docs init list clean archive
